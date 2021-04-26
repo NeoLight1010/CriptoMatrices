@@ -25,7 +25,7 @@ def encode_string(string: str, matrix: np.ndarray, only_alpha=False) -> str:
         str_groups.append(string[i : i + matrix_n])
 
     # Generate numeric groups
-    gap = 96 if only_alpha else 0
+    gap = ALPHA_GAP if only_alpha else 0
     num_groups = []
     for str_group in str_groups:
         group = []
