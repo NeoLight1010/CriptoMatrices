@@ -1,8 +1,6 @@
 import numpy as np
 import re
-
-FILL_CHARACTER = " "
-ALPHA_FILL_CHARACTER = "x"
+from constants import *
 
 
 def encode_string(string: str, matrix: np.ndarray, only_alpha=False) -> str:
