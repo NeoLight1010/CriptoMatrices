@@ -1,11 +1,15 @@
 import numpy as np
 import re
 
-
-FILL_CHARACTER = "."
+FILL_CHARACTER = " "
+ALPHA_FILL_CHARACTER = "x"
 
 
 def encode_string(string: str, matrix: np.ndarray, only_alpha=False) -> str:
+    fill_character = FILL_CHARACTER
+    if only_alpha:
+        fill_character = ALPHA_FILL_CHARACTER
+
     matrix_n = matrix.shape[0]
 
     if only_alpha:
@@ -15,7 +19,7 @@ def encode_string(string: str, matrix: np.ndarray, only_alpha=False) -> str:
         string = string.lower()
 
     # Fill last characters
-    string = string + (FILL_CHARACTER * (len(string) % matrix_n))
+    string = string + (fill_character * (len(string) % matrix_n))
 
     # Group characters
     str_groups = []
