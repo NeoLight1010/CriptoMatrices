@@ -10,7 +10,7 @@ def decode_string(
     Assumes the given string has the correct n (n % key_matrix_n == 0)
     """
     matrix_n = key_matrix.shape[0]
-    encoded_values = [int(x) for x in encoded.split(" ")]
+    encoded_values = [int(x) for x in encoded.strip().split(" ")]
 
     # Group numbers
     value_groups = []
@@ -30,6 +30,6 @@ def decode_string(
     decoded_str = ""
     for group in decoded_matrices:
         for element in group:
-            decoded_str = decoded_str + chr(int(element + gap))
+            decoded_str = decoded_str + chr(int(np.around(element + gap)))
 
     return decoded_str
