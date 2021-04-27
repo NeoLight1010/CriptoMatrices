@@ -17,7 +17,11 @@ def encode_string(string: str, matrix: np.ndarray, only_alpha=False) -> str:
         string = string.lower()
 
     # Fill last characters
-    string = string + (fill_character * (len(string) % matrix_n))
+    fill_length = matrix_n - (len(string) % matrix_n)
+    if fill_length == matrix_n:
+        fill_length = 0
+
+    string = string + (fill_character * fill_length)
 
     # Group characters
     str_groups = []
